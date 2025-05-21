@@ -39,7 +39,7 @@
             Sign Up
           </a>
         </li>
-        <li class="nav-item" *ngIf="isAuthenticated">
+        <li class="nav-item" *ngIf="isAuthenticated$ | async">
           <button class="btn btn-outline-light btn-sm" (click)="logout()">Cerrar Sesión</button>
         </li>
       </ul>
