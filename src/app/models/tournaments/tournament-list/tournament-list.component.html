@@ -1,0 +1,27 @@
+<div class="container mt-5">
+    <h2 class="mb-4">Torneos Disponibles</h2>
+  
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+      <div class="col" *ngFor="let t of tournaments">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">{{ t.name }}</h5>
+            <p class="card-text">
+              <strong>Juego:</strong> {{ t.game }}<br />
+              <strong>Ubicación:</strong> {{ t.location }}<br />
+              <strong>Fecha:</strong> {{ t.date | date:'medium' }}<br />
+              <strong>Cupos:</strong> {{ t.currentPlayers }} / {{ t.maxPlayers }}
+            </p>
+            <button
+              *ngIf="isLoggedIn()"
+              class="btn btn-primary"
+              [disabled]="t.currentPlayers >= t.maxPlayers || reserving === t.id"
+              (click)="reserve(t.id)">
+              {{ t.currentPlayers >= t.maxPlayers ? 'Lleno' : (reserving === t.id ? 'Reservando...' : 'Reservar') }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

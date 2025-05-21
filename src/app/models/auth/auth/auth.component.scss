@@ -1,0 +1,22 @@
+/* sólo un pequeño override, casi todo lo maneja Bootstrap */
+.auth-container {
+    background: #ff0000;
+    /* opcional, para pantallas extra grandes */
+}
+
+@media (max-width: 768px) {
+    .container-fluid.vh-100 {
+        flex-direction: column;
+    }
+
+}
+
+.col-md-3 {
+    max-width: 300px !important; /* Limita el ancho del div */
+    padding: 10px !important; /* Reduce el espacio interno */
+}
+
+.custom-hover:hover {
+    background-color: #595557;  /* Color de fondo al pasar el mouse */
+    color: #ffffff !important;
+}

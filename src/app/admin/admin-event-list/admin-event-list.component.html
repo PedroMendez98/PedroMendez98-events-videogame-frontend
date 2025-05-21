@@ -1,0 +1,29 @@
+<div *ngIf="loading" class="text-center py-5">
+    <div class="spinner-border text-danger"></div>
+  </div>
+  <table *ngIf="!loading" class="table table-striped">
+    <thead class="table-dark">
+      <tr>
+        <th>Nombre</th><th>Juego</th><th>Ubicación</th><th>Fecha</th>
+        <th>Max</th><th>Actual</th><th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let e of events">
+        <td>{{e.name}}</td>
+        <td>{{e.game}}</td>
+        <td>{{e.location}}</td>
+        <td>{{ e.date | date:'short' }}</td>
+        <td>{{e.maxPlayers}}</td>
+        <td>{{e.currentPlayers}}</td>
+        <td>
+          <button class="btn btn-sm btn-outline-warning me-2" (click)="editEvent(e.id)">
+            <i class="bi bi-pencil-fill"></i>
+          </button>
+          <button class="btn btn-sm btn-outline-danger" (click)="deleteEvent(e.id)">
+            <i class="bi bi-trash-fill"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>

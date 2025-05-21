@@ -1,0 +1,35 @@
+<div class="container" style="height: 80vh;">
+    <div class="row h-100 justify-content-center align-items-center gx-0">
+        <!-- IZQUIERDA: Ilustración -->
+        <div class="col-md-5 col-lg-4 d-none d-md-flex justify-content-center align-items-center h-100 p-0 ">
+            <img src="assets/img/gaming-auth-illustration.png" class="img-fluid h-100 rounded-start-2"
+                style="object-fit: cover; width: auto;" alt="Autenticación">
+        </div>
+
+        <!-- DERECHA: Formulario -->
+        <div class="col-12 col-md-5 col-lg-4 d-flex justify-content-center align-items-center h-100">
+            <div [ngStyle]="{'background': divColor}"
+                class="w-100 p-5 rounded-end border border-secondary shadow-md h-100 d-flex flex-column justify-content-center">
+
+                <!-- Toggle botones -->
+                <div class="d-flex mb-4 flex-nowrap">
+                    <button class="btn flex-fill me-1"
+                        [ngClass]="{'btn-primary': showLogin, 'btn-outline-primary': !showLogin}"
+                        [ngStyle]="{'background-color': '#413a3e', 'border-color': '#121111'}" (click)="toggle(true)">
+                        Login
+                    </button>
+                    <button class="btn flex-fill ms-1 custom-hover"
+                        [ngClass]="{'btn-primary': !showLogin, 'btn-outline-primary': showLogin}"
+                        [ngStyle]="{'color': 'black', 'border-color': '#121111'}" (click)="toggle(false)">
+                        Sign Up
+                    </button>
+
+                </div>
+
+                <!-- Formularios -->
+                <app-login *ngIf="showLogin"></app-login>
+                <app-register *ngIf="!showLogin"></app-register>
+            </div>
+        </div>
+    </div>
+</div>

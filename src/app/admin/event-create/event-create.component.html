@@ -1,0 +1,54 @@
+<div class="card mx-auto" style="max-width: 500px;">
+  <div class="card-header bg-danger text-white">
+    {{ isEdit ? 'Editar Evento' : 'Crear Evento' }}
+  </div>
+  <div class="card-body">
+    <form [formGroup]="eventForm" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label class="form-label">Nombre</label>
+        <input type="text" formControlName="name" class="form-control" />
+        <div *ngIf="submitted && f['name'].errors" class="text-danger small">
+          Requerido
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Juego</label>
+        <input type="text" formControlName="game" class="form-control" />
+        <div *ngIf="submitted && f['game'].errors" class="text-danger small">
+          Requerido
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Ubicación</label>
+        <input type="text" formControlName="location" class="form-control" />
+        <div *ngIf="submitted && f['location'].errors" class="text-danger small">
+          Requerido
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Fecha</label>
+        <input type="datetime-local" formControlName="date" class="form-control" />
+        <div *ngIf="submitted && f['date'].errors" class="text-danger small">
+          Requerido
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Máximo Jugadores</label>
+        <input type="number" formControlName="maxPlayers" class="form-control" />
+        <div *ngIf="submitted && f['maxPlayers'].errors" class="text-danger small">
+          Debe ser al menos 1
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-danger w-100">
+        {{ isEdit ? 'Guardar Cambios' : 'Crear Evento' }}
+      </button>
+    </form>
+  </div>
+</div>
+
+

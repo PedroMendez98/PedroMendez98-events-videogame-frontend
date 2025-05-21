@@ -1,0 +1,24 @@
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <div class="mb-3 position-relative">
+    <i class="bi bi-person-fill position-absolute text-secondary"
+      style="top:50%; left:12px; transform:translateY(-50%);"></i>
+    <input type="text" formControlName="username" class="form-control ps-5" placeholder="Usuario">
+    <div *ngIf="submitted && f['username'].errors" class="text-danger small mt-1">
+      El usuario es requerido
+    </div>
+  </div>
+
+  <div class="mb-3 position-relative">
+    <i class="bi bi-lock-fill position-absolute text-secondary"
+      style="top:50%; left:12px; transform:translateY(-50%);"></i>
+    <input type="password" formControlName="password" class="form-control ps-5" placeholder="Contraseña (mín 6)">
+    <div *ngIf="submitted && f['password'].errors" class="text-danger small mt-1">
+      Contraseña requerida (mín 6 caracteres)
+    </div>
+  </div>
+
+  <button type="submit" class="btn w-20" [ngStyle]="{'background-color': '#737172', 'border-color': '#413a3e', 'color':'white'}">
+    Iniciar Sesión
+  </button>
+
+</form>
